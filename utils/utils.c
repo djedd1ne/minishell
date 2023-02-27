@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:22:42 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:58:04 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:30:02 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	*check_malloc(size_t size)
 	return (ret);
 }
 
-int		valid_var_name(t_string str)
+int	valid_var_name(t_string str)
 {
 	int	i;
 
@@ -134,39 +134,4 @@ t_string	ft_sjoin(t_string s1, t_string s2)
 		*p_res++ = *p_str++;
 	*p_res = 0;
 	return (res);
-}
-
-int		ft_pos(t_string str, int ch)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	if (str == NULL)
-		return (-1);
-	len = ft_strlen(str);
-	while (i <= len)
-	{
-		if (str[i] == ch)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-void	free_shell(void)
-{
-	int	i;
-
-	i = 0;
-	while (i <= g_command.malloc_count)
-	{
-		if (((void **)g_command.mem_alloced)[i] != NULL)
-		{
-			free(((void **)g_command.mem_alloced)[i]);
-			((void **)g_command.mem_alloced)[i] = NULL;
-		}
-		i++;
-	}
-	free(g_command.mem_alloced);
 }

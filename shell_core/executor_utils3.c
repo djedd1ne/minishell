@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 06:52:33 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 20:37:13 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:48:13 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_string	ft_prompt(void)
 	return (str);
 }
 
-int		session_init(t_string_array envp)
+int	session_init(t_string_array envp)
 {
 	g_command.malloc_count = 0;
 	g_command.mem_alloced = NULL;
@@ -56,7 +56,7 @@ int	session_end(void)
 {
 	ch_ctrlc(1);
 	//free_all();
-	rl_clear_history();
+	clear_history();
 	printf("exit\n");
-	return(g_command.exit_status);
+	return (g_command.exit_status);
 }

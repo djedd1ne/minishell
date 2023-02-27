@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:53:27 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:58:18 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:06:50 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -101,7 +102,6 @@ typedef struct s_command
 	t_string_array	envp;
 	void			*mem_alloced;
 	int				malloc_count;
-	
 }		t_command;
 
 t_command				g_command;
@@ -151,7 +151,8 @@ int				ft_pwd(void);
 int				ft_unset(t_string_array av);
 
 /******* error.c */
-int				print_stderr(t_string format, t_string prog, t_string error_msg, t_string input);
+int				print_stderr(t_string format, t_string prog,
+					t_string error_msg, t_string input);
 int				print_err(int code, char *prog, char *input);
 int				convert_exit(void);
 /**************** signal_utils.c ****/
@@ -168,7 +169,6 @@ int				ft_strcmp(const char *s1, const char *s2);
 /*********tokenizer*/
 
 # define GS 29
-
 
 enum e_tokens{
 	OPERATOR = -1,
@@ -256,28 +256,29 @@ enum e_state
 	EXE,
 	HDOC,
 };
+
 /******** exe_utils.c *****/
-int			init_argument(t_cmd	*cmd, t_string_array *p_mat);
-int			chck_cmd(t_string cmd);
-void		init_fildes(int	fd[4]);
-void		reset_fildes(int fd[4]);
+int				init_argument(t_cmd	*cmd, t_string_array *p_mat);
+int				chck_cmd(t_string cmd);
+void			init_fildes(int fd[4]);
+void			reset_fildes(int fd[4]);
 
 /**********exe_utils2.c*/
-int			builtin_exe(t_cmd *cmd);
-void		exit_process(int sig);
-int			dup_process(t_cmd *cmd);
+int				builtin_exe(t_cmd *cmd);
+void			exit_process(int sig);
+int				dup_process(t_cmd *cmd);
 
 /********* exec_utils3.c*/
-t_string	ft_prompt(void);
-int			session_init(t_string_array envp);
-int			session_refresh(t_string_array envp);
-int			session_end(void);
+t_string		ft_prompt(void);
+int				session_init(t_string_array envp);
+int				session_refresh(t_string_array envp);
+int				session_end(void);
 
 /********* executor.c */
-int			fetch_inf(t_cmd *cmd, int fildes);
-int			fetch_outf(t_cmd *cmd, int fildes[4]);
-int			command_exe(t_cmd *cmd, int fildes[4]);
-int			executor(void);
-void		free_shell(void);
+int				fetch_inf(t_cmd *cmd, int fildes);
+int				fetch_outf(t_cmd *cmd, int fildes[4]);
+int				command_exe(t_cmd *cmd, int fildes[4]);
+int				executor(void);
+void			free_shell(void);
 
 #endif

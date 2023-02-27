@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:08:48 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:49:35 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:28:07 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-int	print_stderr(t_string format, t_string prog, t_string error_msg, t_string input)
+int	print_stderr(t_string format, t_string prog, t_string error_msg,
+					t_string input)
 {
 	int	stdout_fd;
 

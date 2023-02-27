@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 05:33:49 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:44:19 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:10:51 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	fetch_outf(t_cmd *cmd, int fildes[4])
 
 int	command_exe(t_cmd *cmd, int fildes[4])
 {
-	int retrn;
+	int	retrn;
 
 	retrn = 0;
 	fildes[2] = fetch_inf(cmd, fildes[2]);
@@ -103,7 +103,7 @@ int	executor(void)
 			retrn = command_exe(cmd, fildes);
 		if (retrn == 2)
 			return (2);
-		cmd = cmd->next;	
+			cmd = cmd->next;
 	}
 	reset_fildes(fildes);
 	while (i--)

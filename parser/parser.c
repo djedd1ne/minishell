@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 03:58:53 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 08:27:07 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:07:27 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	parse_rdir(t_cmd *cmd, t_token *tok)
 	op = 0;
 	while (tok != NULL && tok->type != PIPE)
 	{
-		if(ft_io(tok->type))
+		if (ft_io(tok->type))
 			op = tok->type;
 		if (tok->type == REDIR)
 		{

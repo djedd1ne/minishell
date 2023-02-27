@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 04:27:35 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:50:56 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:27:26 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ft_redirection(t_token *tok)
 	{
 		tok_type = tok->type;
 		if (tok_type == GREATER || tok_type == GREATER_GREATER
-				|| tok_type == LESS || tok_type == LESS_LESS)
-				return (1);
+			|| tok_type == LESS || tok_type == LESS_LESS)
+			return (1);
 	}
 	return (0);
 }
@@ -41,8 +41,8 @@ int	chck_str(void)
 			tok->error = 1;
 			return (print_err(6, "", tok->val));
 		}
-		else if (tok->type == PIPE && tok->next &&
-			tok->next->type == PIPE)
+		else if (tok->type == PIPE && tok->next
+			&& tok->next->type == PIPE)
 			return (print_err(6, "", tok->val));
 		tok = tok->next;
 	}
@@ -62,7 +62,8 @@ int	chck_error(void)
 			tok->error = 1;
 			return (print_err(6, "", tok->val));
 		}
-		else if (ft_redirection(tok) && (tok->next && ft_redirection(tok->next)))
+		else if (ft_redirection(tok) && (tok->next
+				&& ft_redirection(tok->next)))
 		{
 			tok->error = 1;
 			return (print_err(4, "", tok->val));

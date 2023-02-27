@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 01:20:25 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 18:55:51 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:26:28 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	print_tok(void)
 	}
 }
 
-int		param_len(t_string str)
+int	param_len(t_string str)
 {
 	int	len;
 

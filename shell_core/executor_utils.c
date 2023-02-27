@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 06:52:27 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:40:35 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:15:27 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init_argument(t_cmd	*cmd, t_string_array *p_mat)
 	i = 0;
 	arg = cmd->argument;
 	while (arg && ++len)
-		arg= arg->next;
+		arg = arg->next;
 	*p_mat = check_malloc(sizeof(t_string) * (len + 1));
 	if (*p_mat == NULL)
 		return (4);
@@ -39,7 +39,7 @@ int	init_argument(t_cmd	*cmd, t_string_array *p_mat)
 	return (len);
 }
 
-int chck_cmd(t_string cmd)
+int	chck_cmd(t_string cmd)
 {
 	t_string_array	path;
 	int				i;
@@ -61,7 +61,7 @@ int chck_cmd(t_string cmd)
 	return (ret);
 }
 
-void	init_fildes(int	fd[4])
+void	init_fildes(int fd[4])
 {
 	fd[0] = dup(STDIN_FILENO);
 	fd[1] = dup(STDOUT_FILENO);

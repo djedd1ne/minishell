@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 06:53:38 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 00:17:28 by mokoucha         ###   ########.fr       */
+/*   Created: 2023/02/28 00:29:49 by mokoucha          #+#    #+#             */
+/*   Updated: 2023/02/28 00:30:13 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-int	main(int ac, t_string_array av, t_string_array envp)
+int	ft_pos(t_string str, int ch)
 {
-	t_string	str;
+	int	i;
+	int	len;
 
-	str = 0;
-	if (ac == 1 && av[0])
+	i = 0;
+	if (str == NULL)
+		return (-1);
+	len = ft_strlen(str);
+	while (i <= len)
 	{
-		session_init(envp);
-		while (1)
-		{
-			session_refresh(envp);
-			str = ft_prompt();
-			if (str != NULL)
-			{
-				if (*str)
-					add_history(str);
-				if (ft_lex(str) != 6 && !ft_parser())
-					executor();
-				g_command.terminated = 0;
-			}
-			else
-				break ;
-			free(str);
-		}
+		if (str[i] == ch)
+			return (i);
+		i++;
 	}
-	return (0);
+	return (-1);
+}
+
+void	free_shell(void)
+{
+	int	i;
+
+	i = 0;
+	while (i <= g_command.malloc_count)
+	{
+		if (((void **)g_command.mem_alloced)[i] != NULL)
+		{
+			free(((void **)g_command.mem_alloced)[i]);
+			((void **)g_command.mem_alloced)[i] = NULL;
+		}
+		i++;
+	}
+	free(g_command.mem_alloced);
 }

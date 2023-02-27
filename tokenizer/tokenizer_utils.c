@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:49:40 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 18:46:49 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:25:36 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_operator(char ch)
 {
 	if (ch == PIPE || ch == LESS || ch == GREATER)
 		return (1);
-	return (0);		
+	return (0);
 }
 
 int	ft_space(char ch)
@@ -26,7 +26,7 @@ int	ft_space(char ch)
 	return (0);
 }
 
-int cmd_split(t_string cmd, t_string token, int condition)
+int	cmd_split(t_string cmd, t_string token, int condition)
 {
 	char	ch;
 
@@ -41,13 +41,14 @@ int cmd_split(t_string cmd, t_string token, int condition)
 		return (1);
 	if (ft_operator(*cmd) && !(ft_operator(ch) && condition == 0))
 		return (1);
-	if ((ft_operator(*cmd) && (ch != *token || ft_strlen(token) >= 2)) && condition == 0)
+	if ((ft_operator(*cmd) && (ch != *token || ft_strlen(token) >= 2))
+		&& condition == 0)
 		return (1);
 	else
 		return (0);
 }
 
-int ft_io(int modifier)
+int	ft_io(int modifier)
 {
 	if (modifier == GREATER || modifier == LESS
 		|| modifier == GREATER_GREATER || modifier == LESS_LESS)

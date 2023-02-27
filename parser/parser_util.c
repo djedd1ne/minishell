@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_util.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 04:59:56 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:50:56 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:09:23 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
-
 
 int	init_arg(t_arg **argument, t_string str)
 {
@@ -72,9 +71,11 @@ int	outf_add(t_outf **outf, t_string f_name, int type)
 		outf = &(*outf)->next;
 	*outf = check_malloc(sizeof(t_outf));
 	if (type == GREATER)
-		(*outf)->fd = open(f_name, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	(*outf)->fd = open(f_name, O_WRONLY | O_CREAT | O_TRUNC,
+				S_IRUSR | S_IWUSR);
 	else if (type == GREATER_GREATER)
-		(*outf)->fd = open(f_name, O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR);
+		(*outf)->fd = open(f_name, O_WRONLY | O_APPEND | O_CREAT,
+				S_IRUSR | S_IWUSR);
 	(*outf)->next = NULL;
 	return (0);
 }

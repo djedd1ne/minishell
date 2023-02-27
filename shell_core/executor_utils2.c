@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 06:52:30 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 22:50:56 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:15:59 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	builtin_exe(t_cmd *cmd)
 {
-	t_string_array av;
-	t_string_array envp;
+	t_string_array	av;
+	t_string_array	envp;
 	int				ac;
-	int			retrn;
+	int				retrn;
 
 	retrn = 0;
 	envp = list_to_array();

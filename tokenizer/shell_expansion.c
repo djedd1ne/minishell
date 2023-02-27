@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 02:41:07 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 19:09:51 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 00:24:27 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_string	expand(t_string tok, int pos, t_string var, int sp)
 	t_string	aft;
 	t_string	tmp;
 	int			len;
-	int			new_pos;
 
 	len = param_len(var + 1);
 	var = ft_substr(var, 1, len);
@@ -31,14 +30,13 @@ t_string	expand(t_string tok, int pos, t_string var, int sp)
 		tmp = ft_strtok(tmp);
 	var = tmp;
 	bef = ft_substr(tok, 0, pos);
-	new_pos = pos + len + 1; 
-	aft = ft_substr(tok, new_pos, ft_strlen(tok));
+	aft = ft_substr(tok, pos + len + 1, ft_strlen(tok));
 	mid = ft_sjoin(bef, var);
 	var = ft_sjoin(mid, aft);
 	return (var);
 }
 
-void	replace_GS(void)
+void	replace_gs(void)
 {
 	t_token		*tok;
 
@@ -52,7 +50,7 @@ void	replace_GS(void)
 	}
 }
 
-int		parameter_exp(void)
+int	parameter_exp(void)
 {
 	t_token		*tok;
 	t_string	var;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 00:29:49 by mokoucha          #+#    #+#             */
-/*   Updated: 2023/02/28 00:30:13 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 02:08:33 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	free_shell(void)
 	int	i;
 
 	i = 0;
-	while (i <= g_command.malloc_count)
+	while (i <= g_command.malloc_n)
 	{
-		if (((void **)g_command.mem_alloced)[i] != NULL)
+		if (((void **)g_command.mem)[i] != NULL)
 		{
-			free(((void **)g_command.mem_alloced)[i]);
-			((void **)g_command.mem_alloced)[i] = NULL;
+			free(((void **)g_command.mem)[i]);
+			((void **)g_command.mem)[i] = NULL;
 		}
 		i++;
 	}
-	free(g_command.mem_alloced);
+	free(g_command.mem);
 }

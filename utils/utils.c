@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:22:42 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 00:30:02 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 02:08:33 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,23 @@ void	*check_malloc(size_t size)
 	void	*ret;
 
 	ret = NULL;
-	if (g_command.malloc_count == 0)
-		g_command.mem_alloced = malloc(sizeof(void *) * 100);
-	if (g_command.malloc_count % 100 == 0 && g_command.malloc_count != 0)
+	if (g_command.malloc_n == 0)
+		g_command.mem = malloc(sizeof(void *) * 100);
+	if (g_command.malloc_n % 100 == 0 && g_command.malloc_n != 0)
 	{
-		g_command.mem_alloced = ft_realloc(g_command.mem_alloced, sizeof(void *)
-				* g_command.malloc_count, sizeof(void *)
-				* (g_command.malloc_count + 100));
+		g_command.mem = ft_realloc(g_command.mem, sizeof(void *)
+				* g_command.malloc_n, sizeof(void *)
+				* (g_command.malloc_n + 100));
 	}
-	if (g_command.mem_alloced == NULL)
+	if (g_command.mem == NULL)
 		return (NULL);
 	ret = malloc(size);
 	if (ret == NULL)
 		return (NULL);
 	else
 	{
-		((void **)g_command.mem_alloced)[g_command.malloc_count] = ret;
-		g_command.malloc_count++;
+		((void **)g_command.mem)[g_command.malloc_n] = ret;
+		g_command.malloc_n++;
 	}
 	return (ret);
 }

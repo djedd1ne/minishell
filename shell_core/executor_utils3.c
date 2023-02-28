@@ -6,7 +6,7 @@
 /*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 06:52:33 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 01:26:18 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 02:08:33 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_string	ft_prompt(void)
 
 int	session_init(t_string_array envp)
 {
-	g_command.malloc_count = 0;
-	g_command.mem_alloced = NULL;
+	g_command.malloc_n = 0;
+	g_command.mem = NULL;
 	g_command.exit_status = 0;
 	signal(SIGINT, signal_ctrlc);
 	signal(SIGQUIT, SIG_IGN);

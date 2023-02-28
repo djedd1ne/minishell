@@ -6,7 +6,7 @@
 /*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:53:27 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 01:25:52 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 02:09:59 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,6 @@ typedef struct s_env
 	struct s_env	*next;
 }		t_env;
 
-typedef struct s_mem_alloc
-{
-	long				address;
-	struct s_mem_alloc	*next;
-}				t_mem_alloc;
-
 typedef struct s_command
 {
 	t_env			*env_var;
@@ -100,8 +94,8 @@ typedef struct s_command
 	int				n_hdoc;
 	t_cmd			*cmds;
 	t_string_array	envp;
-	void			*mem_alloced;
-	int				malloc_count;
+	void			*mem;
+	int				malloc_n;
 }		t_command;
 
 t_command				g_command;

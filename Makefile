@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+         #
+#    By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 00:30:57 by mokoucha          #+#    #+#              #
-#    Updated: 2023/02/28 00:56:38 by mokoucha         ###   ########.fr        #
+#    Updated: 2023/02/28 01:26:48 by djmekki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-MINISHELL_FLAGS =  -lreadline -L/Users/$(USER)/.brew/opt/readline/lib -I/Users/$(USER)/.brew/opt/readline/include $(LIBFT) -o $(NAME)
+MINISHELL_FLAGS =  -L /Users/$(USER)/.brew/opt/readline/lib  -lreadline -I /Users/$(USER)/.brew/opt/readline/include -o $(NAME)
 
 NAME = minishell
 
@@ -58,7 +58,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
 	@make -C libft
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a $(MINISHELL_FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MINISHELL_FLAGS) libft/libft.a 
 	@echo "$(NAME) created"
 
 $(LIBFT) : 

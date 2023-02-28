@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 06:52:33 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 00:48:13 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:26:18 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	session_refresh(t_string_array envp)
 int	session_end(void)
 {
 	ch_ctrlc(1);
-	//free_all();
+	free_shell();
 	clear_history();
 	printf("exit\n");
 	return (g_command.exit_status);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 02:41:07 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 00:24:27 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:11:09 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int	parameter_exp(void)
 			|| (param_len(ft_strchr(tok->val, DOLLAR) + 1) == 0))
 			tok = tok->next;
 	}
-	replace_GS();
+	replace_gs();
 	return (0);
 }

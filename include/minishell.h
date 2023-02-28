@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:53:27 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 00:06:50 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:25:52 by djmekki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,11 +229,11 @@ int				tok_oper(void);
 
 /*shell_expension.c*/
 t_string		expand(t_string tok, int pos, t_string var, int sp);
-void			replace_GS(void);
+void			replace_gs(void);
 int				parameter_exp(void);
 
 /*lex.c*/
-int				ft_lex(t_string cmd);//
+int				ft_lex(t_string cmd);
 
 /******** parser*/
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:36:00 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 01:16:58 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 02:34:08 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ int	ch_ctrlc(int n)
 		attr.c_lflag &= ~ECHOCTL;
 	tcsetattr(STDIN_FILENO, TCSANOW, &attr);
 	return (0);
+}
+
+void	rl_replace_line(const char *s, int clear_undo)
+{
+	if (s)
+		;
+	if (clear_undo)
+		;
 }
 
 void	signal_ctrlc(int sig)

@@ -6,44 +6,11 @@
 /*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:22:51 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 01:03:15 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 02:41:50 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
-
-/*
-int	assign_env(t_string_array av)
-{
-	t_string	argument;
-	t_string	name;
-	t_string	value;
-
-	value = NULL;
-	while (++av && *av)
-	{
-		if (**av)
-		{
-			argument = ft_strchr(*av, '=');
-			if (argument != 0)
-			{
-				name = ft_substr(*av, 0, argument - *av);
-				value = ft_substr(*av, ft_strlen(*av) - ft_strlen(argument) + 1,
-						ft_strlen(argument + 1));
-			}
-			else
-				name = *av;
-			if (!(ft_strncmp (value, "(null)", 7)))
-					value = NULL;
-			if (!(valid_var_name(name)))
-				print_err(2, "export", name);
-			else
-				add_var(name, value);
-		}
-	}
-	return (0);
-}
-*/
 
 t_string	assign_env_part1(t_string arg, t_string *value)
 {
@@ -87,7 +54,6 @@ int	assign_env(t_string_array av)
 	t_string	value;
 
 	value = NULL;
-	
 	assign_env_part2(av);
 	while (++av && *av)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:53:27 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/28 02:09:59 by djmekki          ###   ########.fr       */
+/*   Updated: 2023/02/28 02:43:45 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ typedef struct s_env
 	struct s_env	*next;
 }		t_env;
 
+typedef struct s_mem_alloc
+{
+	long				address;
+	struct s_mem_alloc	*next;
+}				t_mem_alloc;
+
 typedef struct s_command
 {
 	t_env			*env_var;
@@ -94,12 +100,13 @@ typedef struct s_command
 	int				n_hdoc;
 	t_cmd			*cmds;
 	t_string_array	envp;
-	void			*mem;
-	int				malloc_n;
+	void			*mem_alloced;
+	int				malloc_count;
 }		t_command;
 
 t_command				g_command;
 
+extern void		rl_replace_line(const char *s, int i);
 /*******	utils.c	*/
 void			*check_malloc(size_t size);
 int				valid_var_name(t_string str);
@@ -227,7 +234,7 @@ void			replace_gs(void);
 int				parameter_exp(void);
 
 /*lex.c*/
-int				ft_lex(t_string cmd);
+int				ft_lex(t_string cmd);//
 
 /******** parser*/
 

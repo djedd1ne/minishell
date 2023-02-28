@@ -3,18 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+         #
+#    By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 00:30:57 by mokoucha          #+#    #+#              #
-#    Updated: 2023/02/28 01:38:28 by djmekki          ###   ########.fr        #
+#    Updated: 2023/02/28 02:31:57 by mokoucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror 
-
-MINISHELL_FLAGS =  -L /Users/djmekki/.brew/opt/readline/lib -lreadline -I /Users/djmekki/.brew/opt/readline/include
+CFLAGS = -Wall -Wextra -Werror -g -L /Users/$(USER)/.brew/opt/readline/lib -lreadline -I /Users/$(USER)/.brew/opt/readline/include
 
 NAME = minishell
 
@@ -48,24 +46,20 @@ SRC = parser/parser.c\
 	utils/utils2.c\
 	utils/utils3.c\
 
-
 OBJ = $(SRC:.c=.o)
 
 %.o : %.c
-	@${CC} ${CFLAG} -c $< -o $@
+	@${CC} $(INCLUDE) ${CFLAG} -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) 
 	@make -C libft
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MINISHELL_FLAGS) libft/libft.a 
+	@$(CC)  -o $(NAME) $(OBJ) libft/libft.a $(CFLAGS)
 	@echo "$(NAME) created"
 
 $(LIBFT) : 
 	@make -C libft
-
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@make clean -C libft

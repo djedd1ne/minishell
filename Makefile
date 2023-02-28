@@ -6,7 +6,7 @@
 #    By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 00:30:57 by mokoucha          #+#    #+#              #
-#    Updated: 2023/02/28 00:55:09 by mokoucha         ###   ########.fr        #
+#    Updated: 2023/02/28 00:56:38 by mokoucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ SRC = parser/parser.c\
 	utils/utils.c\
 	utils/utils2.c\
 	utils/utils3.c\
-
 
 
 OBJ = $(SRC:.c=.o)

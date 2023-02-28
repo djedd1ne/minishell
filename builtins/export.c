@@ -6,7 +6,7 @@
 /*   By: mokoucha <mokoucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:22:51 by djmekki           #+#    #+#             */
-/*   Updated: 2023/02/27 23:59:14 by mokoucha         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:03:15 by mokoucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	assign_env_part2(t_string_array av)
 	i = 1;
 	while (av[i])
 	{
-		if (!valid_var_name(func1(av[i], NULL)))
+		if (!valid_var_name(assign_env_part1(av[i], NULL)))
 		{
-			print_err(2, "export", func1(av[i], NULL));
+			print_err(2, "export", assign_env_part1(av[i], NULL));
 			g_command.exit_status = 1;
 			return ;
 		}
@@ -87,17 +87,13 @@ int	assign_env(t_string_array av)
 	t_string	value;
 
 	value = NULL;
-	if (av[1] == NULL)
-	{
-		print_sorted_env(g_command.env_var);
-		return (0);
-	}
-	func2(av);
+	
+	assign_env_part2(av);
 	while (++av && *av)
 	{
 		if (**av)
 		{
-			name = func1(*av, &value);
+			name = assign_env_part1(*av, &value);
 			add_var(name, value);
 		}
 	}

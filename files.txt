@@ -1,0 +1,12 @@
+Makefile
+SomeFile.txt
+builtins
+files.txt
+include
+libft
+minishell
+out
+parser
+shell_core
+tokenizer
+utils

@@ -6,7 +6,7 @@
 #    By: djmekki < djmekki@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 00:30:57 by mokoucha          #+#    #+#              #
-#    Updated: 2023/02/28 01:26:48 by djmekki          ###   ########.fr        #
+#    Updated: 2023/02/28 01:38:28 by djmekki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-MINISHELL_FLAGS =  -L /Users/$(USER)/.brew/opt/readline/lib  -lreadline -I /Users/$(USER)/.brew/opt/readline/include -o $(NAME)
+MINISHELL_FLAGS =  -L /Users/djmekki/.brew/opt/readline/lib -lreadline -I /Users/djmekki/.brew/opt/readline/include
 
 NAME = minishell
 
@@ -52,7 +52,7 @@ SRC = parser/parser.c\
 OBJ = $(SRC:.c=.o)
 
 %.o : %.c
-	@${CC} $(INCLUDE) ${CFLAG} -c $< -o $@
+	@${CC} ${CFLAG} -c $< -o $@
 
 all: $(NAME)
 

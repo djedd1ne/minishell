@@ -21,13 +21,16 @@ t_string	assign_env_part1(t_string arg, t_string *value)
 	if (equals != 0)
 	{
 		name = ft_substr(arg, 0, equals - arg);
-		*value = ft_substr(arg, ft_strlen(arg) - ft_strlen(equals) + 1,
+		if (value)
+			*value = ft_substr(arg, ft_strlen(arg) - ft_strlen(equals) + 1,
 				ft_strlen(equals + 1));
 	}
 	else
 		name = arg;
-	if (!(ft_strncmp (*value, "(null)", 7)))
+
+	if (value && *value && !(ft_strncmp(*value, "(null)", 7)))
 		*value = NULL;
+
 	return (name);
 }
 
